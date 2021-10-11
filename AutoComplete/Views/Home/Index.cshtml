@@ -117,6 +117,7 @@
                                         <div class="form-group">
                                             <span class="form-label">Flying from</span>
                                             @*<input class="form-control" type="text" placeholder="City or airport">*@
+                                           
                                             @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].fromCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
                                         </div>
                                     </div>
@@ -124,6 +125,7 @@
                                         <div class="form-group">
                                             <span class="form-label">Flyning to</span>
                                             @*<input class="form-control" type="text" placeholder="City or airport">*@
+                                            
                                             @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].toCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
                                         </div>
                                     </div>
@@ -133,24 +135,20 @@
                                         <div class="form-group">
                                             <span class="form-label">Departing</span>
                                             @*<input class="form-control" type="date" required>*@
-                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].travelDate, new { @type = "date", @class = "form-control datepicker" })
+                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].travelDate, new { @type = "date", @class = "form-control", @placeholder = "Depature Date" })
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <span class="form-label">Returning</span>
-                                            <input class="form-control" type="date" required>
+                                            <input class="form-control" type="date"  placeholder = "Return Date" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <span class="form-label">Adults (18+)</span>
                                             @Html.DropDownListFor(model => model.searchQuery.paxInfo.ADULT, Enumerable.Range(1, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
-                                            @*<select class="form-control">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select>*@
+                                            
                                             <span class="select-arrow"></span>
                                         </div>
                                     </div>
@@ -158,11 +156,7 @@
                                         <div class="form-group">
                                             <span class="form-label">Children (2-12)</span>
                                             @Html.DropDownListFor(model => model.searchQuery.paxInfo.CHILD, Enumerable.Range(0, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
-                                            @*<select class="form-control">
-                                                    <option>0</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                </select>*@
+                                            
                                             <span class="select-arrow"></span>
                                         </div>
                                     </div>
@@ -170,11 +164,7 @@
                                         <div class="form-group">
                                             <span class="form-label">Infant (0-2)</span>
                                             @Html.DropDownListFor(model => model.searchQuery.paxInfo.INFANT, Enumerable.Range(0, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
-                                            @*<select class="form-control">
-                                                    <option>0</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                </select>*@
+                                            
                                             <span class="select-arrow"></span>
                                         </div>
                                     </div>
@@ -184,11 +174,7 @@
                                         <div class="form-group">
                                             <span class="form-label">Travel class</span>
                                             @Html.DropDownListFor(model => model.searchQuery.cabinClass, ViewBag.TravelClass as SelectList, new { @class = "form-control" })
-                                            @*<select class="form-control">
-                                                    <option>Economy class</option>
-                                                    <option>Business class</option>
-                                                    <option>First class</option>
-                                                </select>*@
+                                            
                                             <span class="select-arrow"></span>
                                         </div>
                                     </div>
