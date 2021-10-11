@@ -37,6 +37,7 @@ namespace AutoComplete.Controllers
             ////List<SI> list =JsonConvert.DeserializeObject<List<SI>>(json);  
             //return View(rec);
             //ViewBag.TravelClass = Enum.GetValues(TravelClass);
+            //Test
             var Trav = from OnewayDomesticSearchQuery.TravelClass e in Enum.GetValues(typeof(OnewayDomesticSearchQuery.TravelClass))
                        select e;
                        
