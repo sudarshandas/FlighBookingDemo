@@ -37,7 +37,6 @@ namespace AutoComplete.Controllers
             ////List<SI> list =JsonConvert.DeserializeObject<List<SI>>(json);  
             //return View(rec);
             //ViewBag.TravelClass = Enum.GetValues(TravelClass);
-            //Test
             var Trav = from OnewayDomesticSearchQuery.TravelClass e in Enum.GetValues(typeof(OnewayDomesticSearchQuery.TravelClass))
                        select e;
                        
@@ -59,7 +58,7 @@ namespace AutoComplete.Controllers
 
                 searchlist.Add(new GetCity
                 {
-                    City = dr["municipality"].ToString() + "(" + dr["iata_code"].ToString() + "),"+ dr["name"].ToString(),
+                    City = dr["municipality"].ToString() + "(" + dr["iata_code"].ToString() + "), " + dr["name"].ToString(),
                     iata_code = dr["iata_code"].ToString()
                 });
 
@@ -112,7 +111,7 @@ namespace AutoComplete.Controllers
             return View(root1);
         }
         [HttpPost]
-        public ActionResult PostData(string cabinClass)
+        public ActionResult PostData(string fromCity,string toCity,string date,string adult,string child,string infant,string cabinClass)
         {
             //var txt = fc.searchQuery.cabinClass;
 

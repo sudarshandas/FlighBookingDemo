@@ -31,8 +31,8 @@ namespace AutoComplete.Models
             string INFANT = root.searchQuery.paxInfo.INFANT;
             string cabinClass = root.searchQuery.cabinClass;
             string travelDate = root.searchQuery.routeInfos[0].travelDate;
-            //bool direct = root.searchQuery.searchModifiers.isDirectFlight;
-            text = "{\"searchQuery\":{\"cabinClass\":\""+cabinClass+"\",\"paxInfo\":{\"ADULT\":\""+ADULT+"\",\"CHILD\":\""+CHILD+"\",\"INFANT\":\""+INFANT+"\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\""+City+"\"},\"toCityOrAirport\":{\"code\":\""+City1+"\"},\"travelDate\":\""+ travelDate + "\"}],\"searchModifiers\":{\"isDirectFlight\":true,\"isConnectingFlight\":false}}}";
+            bool direct = root.searchQuery.searchModifiers.isDirectFlight;
+            text = "{\"searchQuery\":{\"cabinClass\":\""+cabinClass+"\",\"paxInfo\":{\"ADULT\":\""+ADULT+"\",\"CHILD\":\""+CHILD+"\",\"INFANT\":\""+INFANT+"\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\""+City+"\"},\"toCityOrAirport\":{\"code\":\""+City1+"\"},\"travelDate\":\""+ travelDate + "\"}],\"searchModifiers\":{\"isDirectFlight\":"+direct.ToString().ToLower()+",\"isConnectingFlight\":false}}}";
             JObject json = JObject.Parse(text);
             //var test= JsonConvert.DeserializeObject<FromSearch>(text);
             List<FlightSearch> Flight = new List<FlightSearch>();
