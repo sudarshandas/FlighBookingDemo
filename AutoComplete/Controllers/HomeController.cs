@@ -58,8 +58,8 @@ namespace AutoComplete.Controllers
 
                 searchlist.Add(new GetCity
                 {
-                    City = dr["municipality"].ToString() + "(" + dr["iata_code"].ToString() + "), " + dr["name"].ToString(),
-                    iata_code = dr["iata_code"].ToString()
+                    City = dr["municipality"].ToString() + "(" + dr["iata_code"].ToString() + "),"+ dr["name"].ToString(),
+                   
                 });
 
             }
@@ -103,15 +103,15 @@ namespace AutoComplete.Controllers
             root1.Add(model1);
             ViewBag.rootmodel = root;
             ViewBag.rootmodel1 = root1;
-            ResultView rv = new ResultView();
-            ViewBag.price=rv.CalPrice(root,model1);
+            //ResultView rv = new ResultView();
+            //ViewBag.price=rv.CalPrice(root,model1);
             //return View(root.AsEnumerable());
             TempData["OnewayDomesticResult"] = model;
             TempData["onewayDomesticSearchQuery"] = model1;
             return View(root1);
         }
         [HttpPost]
-        public ActionResult PostData(string fromCity,string toCity,string date,string adult,string child,string infant,string cabinClass)
+        public ActionResult PostData(string cabinClass)
         {
             //var txt = fc.searchQuery.cabinClass;
 

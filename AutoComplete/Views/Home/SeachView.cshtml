@@ -4,7 +4,6 @@
     //Layout = null;
     // ViewBag.Title = "SeachView";
     //var acbc = ViewBag.rootmodel;
-    //Kuntal
     var root = ViewBag.rootmodel;
     var root1 = ViewBag.rootmodel1;
 }
@@ -15,23 +14,139 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>OnewayDomesticResult</title>
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CSS/style.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
 <body>
-    @using (Html.BeginForm("PostData", "Home", FormMethod.Post))
-    {
-        <div class="form-group">
-            @foreach (var item in root1)
-            {
-                foreach (var it in Model)
-                {
-                @Html.EditorFor(m => it.searchQuery.cabinClass, "cabinClass")
-                <input type="text" id="cabinClass" name="cabinClass" value=@item.searchQuery.cabinClass />
-                }
-            }
-            <input type="submit" id="search" value="SEARCH" />
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+
+                        <form>
+
+                            <div class="form-group">
+                                <div class="form-checkbox">
+                                    <label for="roundtrip">
+                                        <input type="radio" id="roundtrip" name="flight-type">
+                                        <span></span>Roundtrip
+                                    </label>
+                                    <label for="one-way">
+                                        <input type="radio" id="one-way" name="flight-type">
+                                        <span></span>One way
+                                    </label>
+                                    <label for="multi-city">
+                                        <input type="radio" id="multi-city" name="flight-type">
+                                        <span></span>Multi-City
+                                    </label>
+                                </div>
+                            </div>
+                            @foreach (var item in root1)
+                            {
+                                
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Flying from</span>
+                                                @*<input class="form-control" type="text" placeholder="City or airport">*@
+                                                <input type="text" id="depature" name="depature" class="form-control" value=@item.searchQuery.routeInfos[0].fromCityOrAirport.code />
+                                                @*@Html.TextBoxFor(model => model.searchQuery.routeInfos[0].fromCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })*@
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Flyning to</span>
+
+                                                <input type="text" id="arrival" class="form-control" name="arrival" value=@item.searchQuery.routeInfos[0].toCityOrAirport.code />
+                                                @* @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].toCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <span class="form-label">Departing</span>
+                                                <input type="date" id="date" class="form-control" name="date" value=@item.searchQuery.routeInfos[0].travelDate />
+                                                @*@Html.TextBoxFor(model => model.searchQuery.routeInfos[0].travelDate, new { @type = "date", @class = "form-control datepicker" })*@
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <span class="form-label">Returning</span>
+                                                <input class="form-control" type="date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <span class="form-label">Adults (18+)</span>
+                                                <select id="adult" name="adult" class="form-control" selectedvalue=@item.searchQuery.paxInfo.ADULT>
+                                                    <optionvalue>@item.searchQuery.paxInfo.ADULT</optionvalue>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                @* @Html.DropDownListFor(model => model.searchQuery.paxInfo.ADULT, Enumerable.Range(1, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })*@
+
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <span class="form-label">Children (2-12)</span>
+                                                @*@Html.DropDownListFor(model => model.searchQuery.paxInfo.CHILD, Enumerable.Range(0, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })*@
+                                                <select class="form-control">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <span class="form-label">Infant (0-2)</span>
+                                                <select class="form-control">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                </select>
+                                                @* @Html.DropDownListFor(model => model.searchQuery.paxInfo.INFANT, Enumerable.Range(0, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })*@
+
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <span class="form-label">Travel class</span>
+                                                @*@Html.DropDownListFor(model => model.searchQuery.cabinClass, ViewBag.TravelClass as SelectList, new { @class = "form-control" })*@
+                                                <select class="form-control">
+                                                    <option>Economy class</option>
+                                                    <option>Business class</option>
+                                                    <option>First class</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-btn">
+                                                <input type="submit" class="submit-btn" value="Show flights" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            }
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
+    </div>
 
     <div class="row grid_box">
 
@@ -63,9 +178,9 @@
 
                     </tr>
 
-                    @foreach (var item in  root)
+                    @foreach (var item in root)
                     {
-                        int i = 0,j=0;
+                        int i = 0, j = 0;
                         foreach (var searchResult in item.searchResult.tripInfos.ONWARD)
                         {
 
@@ -76,11 +191,11 @@
                                 </td>
                                 <td>
                                     <span> @searchResult.sI[0].aa.name</span>
-                                </td>                                
-                                <td>
-                                   <span> @searchResult.sI[0].duration</span>
                                 </td>
-                                <td>                                    
+                                <td>
+                                    <span> @searchResult.sI[0].duration</span>
+                                </td>
+                                <td>
                                     <span>  @searchResult.sI[0].dt.Split(new Char[] { 'T' }, StringSplitOptions.None)[1]</span>
                                 </td>
                                 <td>
@@ -92,36 +207,36 @@
                                 <td>
                                     <span>@searchResult.sI[0].stops</span>
                                 </td>
-                                </tr>
+                            </tr>
                                 <tr>
                                     <td><br /></td>
                                 </tr>
-                            
+
                             foreach (var Price in searchResult.totalPriceList)
                             {
-                                    <tr>
-                                        <td>
-                                            -
-                                        </td>
-                                        <td>
-                                            @Price.fareIdentifier<br />
-                                        </td>
-                                        <td>
-                                            CHECK-IN:<span>@Price.fd.ADULT.bI.iB</span><br />
-                                        </td>
-                                        <td>
-                                            CABIN BAG:<span>@Price.fd.ADULT.bI.cB</span><br />
-                                        </td>
-                                        <td>
-                                            ₹<span>@ViewBag.price[j]</span>
-                                        </td>
-                                        <td>
-                                            <span hidden="true">@Price.id</span>
-                                            @Html.ActionLink("Book", "Index", "Book", new { id = Price.id }, null)<br />
+                                <tr>
+                                    <td>
+                                        -
+                                    </td>
+                                    <td>
+                                        @Price.fareIdentifier<br />
+                                    </td>
+                                    <td>
+                                        CHECK-IN:<span>@Price.fd.ADULT.bI.iB</span><br />
+                                    </td>
+                                    <td>
+                                        CABIN BAG:<span>@Price.fd.ADULT.bI.cB</span><br />
+                                    </td>
+                                    <td>
+                                        ₹<span>@Convert.ToInt32(@Price.fd.ADULT.fC.TF)</span>
+                                    </td>
+                                    <td>
+                                        <span hidden="true">@Price.id</span>
+                                        @Html.ActionLink("Book", "Index", "Book", new { id = Price.id }, null)<br />
 
-                                        </td>
-                                        <td>-</td>
-                                    </tr>
+                                    </td>
+                                    <td>-</td>
+                                </tr>
                                     <tr>
                                         <td>
                                             <br />
@@ -139,10 +254,10 @@
                     }
 
                 </table>
-                </div>
             </div>
         </div>
-    
+    </div>
+
 
 </body>
 </html>

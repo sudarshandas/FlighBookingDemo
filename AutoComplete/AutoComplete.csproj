@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -236,13 +237,13 @@
       <DependentUpon>CityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\db.cs" />
-    <Compile Include="Models\DomesticReturn.cs" />
-    <Compile Include="Models\FlightSearch.cs" />
     <Compile Include="Models\OnewayDomesticSearchQuery.cs" />
     <Compile Include="Models\GetCity.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OnewayDomesticResult.cs" />
+    <Compile Include="Models\ReviewOrRevalidateResult.cs" />
+    <Compile Include="Models\ReviewRevalidate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ResultView.cs" />
@@ -250,10 +251,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CSS\bootstrap.min.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="CSS\Style1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\background.jpg" />
     <Content Include="Models\CityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CityModel.edmx</DependentUpon>
@@ -328,10 +333,10 @@
     <Content Include="Views\Home\Get.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SeachView.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Book\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

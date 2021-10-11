@@ -24,19 +24,17 @@ namespace AutoComplete.Models
 
         public string Flight (OnewayDomesticSearchQuery.RootObject root)
         {
-            string City = root.searchQuery.routeInfos[0].fromCityOrAirport.code;
-            string City1 = root.searchQuery.routeInfos[0].toCityOrAirport.code;
+            string City = root.searchQuery.routeInfos[0].fromCityOrAirport.code.Split(new Char[] { '(', ')' }, StringSplitOptions.None)[1];
+            string City1 = root.searchQuery.routeInfos[0].toCityOrAirport.code.Split(new Char[] { '(',')' }, StringSplitOptions.None)[1];
             string ADULT = root.searchQuery.paxInfo.ADULT;
             string CHILD = root.searchQuery.paxInfo.CHILD;
             string INFANT = root.searchQuery.paxInfo.INFANT;
             string cabinClass = root.searchQuery.cabinClass;
             string travelDate = root.searchQuery.routeInfos[0].travelDate;
-            bool direct = root.searchQuery.searchModifiers.isDirectFlight;
-            text = "{\"searchQuery\":{\"cabinClass\":\""+cabinClass+"\",\"paxInfo\":{\"ADULT\":\""+ADULT+"\",\"CHILD\":\""+CHILD+"\",\"INFANT\":\""+INFANT+"\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\""+City+"\"},\"toCityOrAirport\":{\"code\":\""+City1+"\"},\"travelDate\":\""+ travelDate + "\"}],\"searchModifiers\":{\"isDirectFlight\":"+direct.ToString().ToLower()+",\"isConnectingFlight\":false}}}";
+            //bool direct = root.searchQuery.searchModifiers.isDirectFlight;
+            text = "{\"searchQuery\":{\"cabinClass\":\""+cabinClass+"\",\"paxInfo\":{\"ADULT\":\""+ADULT+"\",\"CHILD\":\""+CHILD+"\",\"INFANT\":\""+INFANT+"\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\""+City+"\"},\"toCityOrAirport\":{\"code\":\""+City1+"\"},\"travelDate\":\""+ travelDate + "\"}],\"searchModifiers\":{\"isDirectFlight\":true,\"isConnectingFlight\":false}}}";
             JObject json = JObject.Parse(text);
-            //var test= JsonConvert.DeserializeObject<FromSearch>(text);
-            List<FlightSearch> Flight = new List<FlightSearch>();
-
+           
             var clie = new RestClient(BaseUrl);
             clie.Timeout = -1;
             var Req = new RestRequest(Method.POST);
@@ -45,28 +43,8 @@ namespace AutoComplete.Models
             Req.AddParameter("application/json", json, ParameterType.RequestBody);
             IRestResponse res = clie.Execute(Req);
             json1 = res.Content;
-            DataSet ds = new DataSet();
-            ds = jsonToDataSet(json1);
-
-
-            //using (var client = new HttpClient())
-            //{
-            //    client.BaseAddress=new Uri(BaseUrl);
-            //    client.DefaultRequestHeaders.Clear();
-            //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //    //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("apikey",apikey));
-            //    //client.PostAsync
-            //    string text = "{\"searchQuery\":{\"cabinClass\":\"ECONOMY\",\"paxInfo\":{\"ADULT\":\"1\",\"CHILD\":\"0\",\"INFANT\":\"0\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\"DEL\"},\"toCityOrAirport\":{\"code\":\"CCU\"},\"travelDate\":\"2021-10-03\"}],\"searchModifiers\":{\"isDirectFlight\":true,\"isConnectingFlight\":false}}}";
-            //    HttpResponseMessage Res = await client.PostAsJsonAsync("",JObject.Parse(text));
-            //    if(Res.IsSuccessStatusCode)
-            //    {
-            //        var FlightResponse = Res.Content.ReadAsStringAsync().Result;
-            //        Flight = JsonConvert.DeserializeObject<List<FlightSearch>>(FlightResponse);
-            //    }
-            //    return View(Flight);
-            //}
-            //return View(json1);
-
+            //DataSet ds = new DataSet();
+            //ds = jsonToDataSet(json1);
             return json1;
         
         }
