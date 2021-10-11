@@ -1,0 +1,166 @@
+﻿@using AutoComplete.Models
+@model List<OnewayDomesticSearchQuery.RootObject>
+@{
+    //Layout = null;
+    // ViewBag.Title = "SeachView";
+    //var acbc = ViewBag.rootmodel;
+    var root = ViewBag.rootmodel;
+    var root1 = ViewBag.rootmodel1;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OnewayDomesticResult</title>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    @using (Html.BeginForm("PostData", "Home", FormMethod.Post))
+    {
+    <div class="form-group">
+        @foreach (var item in root1)
+        {
+            foreach (var it in Model)
+            {
+                <span><label>Form</label></span>
+                <input type="text" id="depature" name="depature" value=@item.searchQuery.routeInfos[0].fromCityOrAirport.code />
+                <span><label>To</label></span>
+                <input type="text" id="arrival" name="arrival" value=@item.searchQuery.routeInfos[0].toCityOrAirport.code />
+                <span><label>Date</label></span>
+                <input type="date" id="date" name="date" value=@item.searchQuery.routeInfos[0].travelDate />
+                <span><label>Adult</label></span>
+                <select id="adult" name="adult" selectedvalue=@item.searchQuery.paxInfo.ADULT>
+                    <optionvalue>@item.searchQuery.paxInfo.ADULT</optionvalue>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                
+                @*<input type="" id="date" name="date" value=@item.searchQuery.paxInfo.ADULT />
+                <span><label>Date</label></span>
+                <input type="date" id="date" name="date" value=@item.searchQuery.CHILD />
+                <span><label>Date</label></span>
+                <input type="date" id="date" name="date" value=@item.searchQuery.INFANT />*@
+                @*@Html.EditorFor(m => it.searchQuery.cabinClass, "cabinClass")*@
+                <input type="text" id="cabinClass" name="cabinClass" value=@item.searchQuery.cabinClass />
+            }
+        }
+        <input type="submit" id="search" value="SEARCH" />
+    </div>
+    }
+
+    <div class="row grid_box">
+
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            <label>Depature</label>
+                        </th>
+                        <th>
+                            <label>Arrival</label>
+                        </th>
+                        <th>
+                            <label>Duration</label>
+                        </th>
+                        <th>
+                            <label>Depature Time</label>
+                        </th>
+                        <th>
+                            <label>Arrival Time</label>
+                        </th>
+                        <th>
+                            <label>Airline Name</label>
+                        </th>
+                        <th>
+                            <label>Stop</label>
+                        </th>
+
+                    </tr>
+
+                    @foreach (var item in  root)
+                    {
+                        int i = 0,j=0;
+                        foreach (var searchResult in item.searchResult.tripInfos.ONWARD)
+                        {
+
+
+                            <tr>
+                                <td>
+                                    @searchResult.sI[0].da.name
+                                </td>
+                                <td>
+                                    <span> @searchResult.sI[0].aa.name</span>
+                                </td>                                
+                                <td>
+                                   <span> @searchResult.sI[0].duration</span>
+                                </td>
+                                <td>                                    
+                                    <span>  @searchResult.sI[0].dt.Split(new Char[] { 'T' }, StringSplitOptions.None)[1]</span>
+                                </td>
+                                <td>
+                                    <span>@searchResult.sI[0].at.Split(new Char[] { 'T' }, StringSplitOptions.None)[1]</span>
+                                </td>
+                                <td>
+                                    <span>@searchResult.sI[0].fD.aI.name</span>
+                                </td>
+                                <td>
+                                    <span>@searchResult.sI[0].stops</span>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td><br /></td>
+                                </tr>
+                            
+                            foreach (var Price in searchResult.totalPriceList)
+                            {
+                                    <tr>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                            @Price.fareIdentifier<br />
+                                        </td>
+                                        <td>
+                                            CHECK-IN:<span>@Price.fd.ADULT.bI.iB</span><br />
+                                        </td>
+                                        <td>
+                                            CABIN BAG:<span>@Price.fd.ADULT.bI.cB</span><br />
+                                        </td>
+                                        <td>
+                                            ₹<span>@ViewBag.price[j]</span>
+                                        </td>
+                                        <td>
+                                            <span hidden="true">@Price.id</span>
+                                            @Html.ActionLink("Book", "Index", "Book", new { id = Price.id }, null)<br />
+
+                                        </td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <br />
+                                        </td>
+                                    </tr>
+                                j++;
+
+                            }
+                            <tr>
+                                <td>
+                                    <br />
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </table>
+                </div>
+            </div>
+        </div>
+    
+
+</body>
+</html>

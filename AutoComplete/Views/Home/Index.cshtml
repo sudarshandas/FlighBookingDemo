@@ -1,0 +1,209 @@
+﻿@model AutoComplete.Models.OnewayDomesticSearchQuery.RootObject
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="~/CSS/style.css" rel="stylesheet" />
+
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+
+
+            $("#searchQuery_routeInfos_0__fromCityOrAirport_code").autocomplete({
+
+                source: function (request, response) {
+
+                    $.ajax({
+
+                        url: "/Home/GetRecord",
+
+                        type: "POST",
+
+                        dataType: "json",
+
+                        data: { prefix: request.term },
+
+                        success: function (data) {
+
+                            response($.map(data, function (item) {
+                                return { label: item.City, value: item.City };
+
+                            }))
+
+                        }
+
+                    })
+
+                },
+
+            });
+            $('#searchQuery_routeInfos_0__toCityOrAirport_code').autocomplete({
+                source: function (request, response) {
+
+                    $.ajax({
+
+                        url: "/Home/GetRecord",
+
+                        type: "POST",
+
+                        dataType: "json",
+
+                        data: { prefix: request.term },
+
+                        success: function (data) {
+
+                            response($.map(data, function (item) {
+                                return { label: item.City, value: item.City };
+
+                            }))
+
+                        }
+
+                    })
+
+                },
+
+            });
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+                        @using (Html.BeginForm("SearchResults", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <form>
+                                <div class="form-group">
+                                    <div class="form-checkbox">
+                                        <label for="roundtrip">
+                                            <input type="radio" id="roundtrip" name="flight-type">
+                                            <span></span>Roundtrip
+                                        </label>
+                                        <label for="one-way">
+                                            <input type="radio" id="one-way" name="flight-type">
+                                            <span></span>One way
+                                        </label>
+                                        <label for="multi-city">
+                                            <input type="radio" id="multi-city" name="flight-type">
+                                            <span></span>Multi-City
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flying from</span>
+                                            @*<input class="form-control" type="text" placeholder="City or airport">*@
+                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].fromCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Flyning to</span>
+                                            @*<input class="form-control" type="text" placeholder="City or airport">*@
+                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].toCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <span class="form-label">Departing</span>
+                                            @*<input class="form-control" type="date" required>*@
+                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].travelDate, new { @type = "date", @class = "form-control datepicker" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <span class="form-label">Returning</span>
+                                            <input class="form-control" type="date" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <span class="form-label">Adults (18+)</span>
+                                            @Html.DropDownListFor(model => model.searchQuery.paxInfo.ADULT, Enumerable.Range(1, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
+                                            @*<select class="form-control">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>*@
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <span class="form-label">Children (2-12)</span>
+                                            @Html.DropDownListFor(model => model.searchQuery.paxInfo.CHILD, Enumerable.Range(0, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
+                                            @*<select class="form-control">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                </select>*@
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <span class="form-label">Infant (0-2)</span>
+                                            @Html.DropDownListFor(model => model.searchQuery.paxInfo.INFANT, Enumerable.Range(0, 9).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
+                                            @*<select class="form-control">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                </select>*@
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <span class="form-label">Travel class</span>
+                                            @Html.DropDownListFor(model => model.searchQuery.cabinClass, ViewBag.TravelClass as SelectList, new { @class = "form-control" })
+                                            @*<select class="form-control">
+                                                    <option>Economy class</option>
+                                                    <option>Business class</option>
+                                                    <option>First class</option>
+                                                </select>*@
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-btn">
+                                            <input type="submit" class="submit-btn" value="Show flights" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

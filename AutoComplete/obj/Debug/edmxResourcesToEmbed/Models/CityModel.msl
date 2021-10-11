@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AirportsModelStoreContainer" CdmEntityContainer="AirportsEntities">
+    <EntitySetMapping Name="airports">
+      <EntityTypeMapping TypeName="AirportsModel.airport">
+        <MappingFragment StoreEntitySet="airports">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AirportName" ColumnName="AirportName" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="IATA_Code" ColumnName="IATA_Code" />
+          <ScalarProperty Name="ICAO_Code" ColumnName="ICAO_Code" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+          <ScalarProperty Name="gmt" ColumnName="gmt" />
+          <ScalarProperty Name="DST" ColumnName="DST" />
+          <ScalarProperty Name="Tz_database_time_zone" ColumnName="Tz database time zone" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

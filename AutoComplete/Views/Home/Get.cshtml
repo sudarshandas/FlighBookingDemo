@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AutoComplete.Models.RouteInfo>
+
+@{
+    ViewBag.Title = "Get";
+}
+
+<h2>Get</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.travelDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fromCityOrAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.toCityOrAirport)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.travelDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fromCityOrAirport.code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.toCityOrAirport.code)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
