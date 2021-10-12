@@ -46,7 +46,7 @@ namespace AutoComplete.Controllers
 
         public JsonResult GetRecord(string prefix)
 
-        {
+       {
 
             DataSet ds = Db.GetAirport(prefix);
 
