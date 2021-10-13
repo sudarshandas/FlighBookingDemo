@@ -98,13 +98,13 @@
                             <form>
                                 <div class="form-group">
                                     <div class="form-checkbox">
+                                        <label for="one-way">
+                                            <input type="radio" id="one-way" name="flight-type" checked>
+                                            <span></span>One way
+                                        </label>
                                         <label for="roundtrip">
                                             <input type="radio" id="roundtrip" name="flight-type">
                                             <span></span>Roundtrip
-                                        </label>
-                                        <label for="one-way">
-                                            <input type="radio" id="one-way" name="flight-type">
-                                            <span></span>One way
                                         </label>
                                         <label for="multi-city">
                                             <input type="radio" id="multi-city" name="flight-type">
@@ -138,6 +138,7 @@
                                             @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].travelDate, new { @type = "date", @class = "form-control", @placeholder = "Depature Date" })
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <span class="form-label">Returning</span>
