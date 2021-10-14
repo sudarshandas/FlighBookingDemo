@@ -31,12 +31,6 @@ namespace AutoComplete.Controllers
         //GET:HOME
         public ActionResult Index()
         {
-            //AvailableFlight available = new AvailableFlight();
-            //json=available.Flight();
-            //var rec = JsonConvert.DeserializeObject<FlightSearchResponse>(json);
-            ////List<SI> list =JsonConvert.DeserializeObject<List<SI>>(json);  
-            //return View(rec);
-            //ViewBag.TravelClass = Enum.GetValues(TravelClass);
             var Trav = from OnewayDomesticSearchQuery.TravelClass e in Enum.GetValues(typeof(OnewayDomesticSearchQuery.TravelClass))
                        select e;
                        
@@ -93,12 +87,10 @@ namespace AutoComplete.Controllers
         {
             //This Action and View For OnewayDomectic Search Only
 
-
             var model = TempData["OnewayDomesticResult"] as OnewayDomesticResult.Rootobject;
             var model1 = TempData["onewayDomesticSearchQuery"] as OnewayDomesticSearchQuery.RootObject;
             List<OnewayDomesticResult.Rootobject> root = new List<OnewayDomesticResult.Rootobject>();
             List<OnewayDomesticSearchQuery.RootObject> root1 = new List<OnewayDomesticSearchQuery.RootObject>();
-            OnewayDomesticSearchQuery.RootObject exeModel = new OnewayDomesticSearchQuery.RootObject();
             root.Add(model);
             root1.Add(model1);
             ViewBag.rootmodel = root;
@@ -118,43 +110,5 @@ namespace AutoComplete.Controllers
             return View();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
