@@ -14,7 +14,7 @@ namespace AutoComplete.Models
 {
     public class AvailableFlight
     {
-        public airport db = new airport();
+        public Airports db = new Airports();
         string BaseUrl = "https://apitest.tripjack.com/fms/v1/air-search-all";
         string apikey = "7114315c476d94-4ef2-4e21-83e8-527d56a0c529";
         static string json1;

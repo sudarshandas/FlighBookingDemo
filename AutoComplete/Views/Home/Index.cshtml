@@ -79,10 +79,13 @@
                 },
 
             });
-
+            
 
         });
+        function checked()
+        {
 
+        }
     </script>
 
 </head>
@@ -142,7 +145,8 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <span class="form-label">Returning</span>
-                                            <input class="form-control" type="date"  placeholder = "Return Date" >
+                                            @*<input class="form-control" type="date"  placeholder = "Return Date" >*@
+                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].travelDate, new { @type = "date", @class = "form-control", @placeholder = "Depature Date" })
                                         </div>
                                     </div>
                                     <div class="col-md-2">

@@ -25,6 +25,5 @@ namespace AutoComplete.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<airport> airports { get; set; }
     }
 }

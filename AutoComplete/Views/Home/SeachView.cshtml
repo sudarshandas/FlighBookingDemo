@@ -51,7 +51,7 @@
                                             <div class="form-group">
                                                 <span class="form-label">Flying from</span>
                                                 @*<input class="form-control" type="text" placeholder="City or airport">*@
-                                                <input type="text" id="depature" name="depature" class="form-control" value=@item.searchQuery.routeInfos[0].fromCityOrAirport.code />
+                                                <input type="text" id="depature" name="depature" class="form-control" value="@item.searchQuery.routeInfos[0].fromCityOrAirport.code" />
                                                 @*@Html.TextBoxFor(model => model.searchQuery.routeInfos[0].fromCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })*@
                                             </div>
                                         </div>
@@ -59,7 +59,7 @@
                                             <div class="form-group">
                                                 <span class="form-label">Flyning to</span>
 
-                                                <input type="text" id="arrival" class="form-control" name="arrival" value=@item.searchQuery.routeInfos[0].toCityOrAirport.code />
+                                                <input type="text" id="arrival" class="form-control" name="arrival" value="@item.searchQuery.routeInfos[0].toCityOrAirport.code" />
                                                 @* @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].toCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })*@
                                             </div>
                                         </div>
@@ -68,7 +68,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <span class="form-label">Departing</span>
-                                                <input type="date" id="date" class="form-control" name="date" value=@item.searchQuery.routeInfos[0].travelDate />
+                                                <input type="date" id="date" class="form-control" name="date" value="@item.searchQuery.routeInfos[0].travelDate" />
                                                 @*@Html.TextBoxFor(model => model.searchQuery.routeInfos[0].travelDate, new { @type = "date", @class = "form-control datepicker" })*@
                                             </div>
                                         </div>
@@ -81,7 +81,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <span class="form-label">Adults (18+)</span>
-                                                <select id="adult" name="adult" class="form-control" selectedvalue=@item.searchQuery.paxInfo.ADULT>
+                                                <select id="adult" name="adult" class="form-control" selectedvalue="@item.searchQuery.paxInfo.ADULT">
                                                     <optionvalue>@item.searchQuery.paxInfo.ADULT</optionvalue>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -232,7 +232,7 @@
                                     </td>
                                     <td>
                                         <span hidden="true">@Price.id</span>
-                                        @Html.ActionLink("Book", "Review", "Book", new { id = Price.id }, null)<br />
+                                        @Html.ActionLink("Book", "Review", "Book", new { id = Price.id }, new { target = "_blank" })<br />
 
                                     </td>
                                     <td>-</td>

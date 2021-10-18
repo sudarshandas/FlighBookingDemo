@@ -10,7 +10,7 @@ namespace AutoComplete.Models
 {
     public class db
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection1"].ConnectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
         public DataSet GetAirport(string Prefix)
         {

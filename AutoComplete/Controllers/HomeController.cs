@@ -39,8 +39,7 @@ namespace AutoComplete.Controllers
         }
 
         public JsonResult GetRecord(string prefix)
-
-       {
+        {
 
             DataSet ds = Db.GetAirport(prefix);
 
@@ -58,7 +57,7 @@ namespace AutoComplete.Controllers
 
             }
 
-            return Json(searchlist);
+            return Json(searchlist, JsonRequestBehavior.AllowGet);
 
         }
         [HttpPost]

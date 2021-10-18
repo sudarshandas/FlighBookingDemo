@@ -58,8 +58,5 @@ namespace AutoComplete.Models
             public string code { get; set; }
         }
     }
-
     
-
-
 }

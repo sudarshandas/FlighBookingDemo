@@ -216,26 +216,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\airport.cs">
-      <DependentUpon>CityModel.tt</DependentUpon>
+    <Compile Include="Models\AirportModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirportModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirportModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirportModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirportModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Airports.cs" />
     <Compile Include="Models\AvailableFlight.cs" />
-    <Compile Include="Models\CityModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CityModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CityModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CityModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CityModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CityModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\db.cs" />
     <Compile Include="Models\OnewayDomesticSearchQuery.cs" />
     <Compile Include="Models\GetCity.cs" />
@@ -259,15 +256,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Img\background.jpg" />
-    <Content Include="Models\CityModel.Context.tt">
+    <Content Include="Models\AirportModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CityModel.edmx</DependentUpon>
-      <LastGenOutput>CityModel.Context.cs</LastGenOutput>
+      <DependentUpon>AirportModel.edmx</DependentUpon>
+      <LastGenOutput>AirportModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\CityModel.tt">
+    <Content Include="Models\AirportModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CityModel.edmx</DependentUpon>
-      <LastGenOutput>CityModel.cs</LastGenOutput>
+      <DependentUpon>AirportModel.edmx</DependentUpon>
+      <LastGenOutput>AirportModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -276,12 +273,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\CityModel.edmx">
+    <EntityDeploy Include="Models\AirportModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CityModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AirportModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\CityModel.edmx.diagram">
-      <DependentUpon>CityModel.edmx</DependentUpon>
+    <Content Include="Models\AirportModel.edmx.diagram">
+      <DependentUpon>AirportModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
