@@ -46,6 +46,7 @@ namespace AutoComplete.Models
             public Fromcityorairport fromCityOrAirport { get; set; }
             public Tocityorairport toCityOrAirport { get; set; }
             public string travelDate { get; set; }
+            public string returnDate { get; set; }
         }
 
         public class Fromcityorairport

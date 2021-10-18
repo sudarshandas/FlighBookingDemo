@@ -340,7 +340,6 @@ D:\Update\FlightBookingDemo\AutoComplete\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Update\FlightBookingDemo\AutoComplete\bin\Microsoft.Owin.Security.Google.xml
 D:\Update\FlightBookingDemo\AutoComplete\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Update\FlightBookingDemo\AutoComplete\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csprojResolveAssemblyReference.cache
 D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.dll
 D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.pdb
 D:\ASP MVC\FlighBookingDemo\AutoComplete\bin\ApplicationInsights.config
@@ -430,3 +429,6 @@ D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.AssemblyR
 D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.CoreCompileInputs.cache
 D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.dll
 D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.pdb
+D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csprojAssemblyReference.cache
+D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.CoreCompileInputs.cache
+D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.CopyComplete
