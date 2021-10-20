@@ -73,12 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grey padT10 font12 padL20 padR20 dF">
-                        
-                                <p class="padL5">@item.tripInfos[0].totalPriceList[0].fd.ADULT.bI.iB  Check-In,  @item.tripInfos[0].totalPriceList[0].fd.ADULT.bI.cB  Cabin</p>
-                            
-                        <div class="flex2"></div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="flight-detailstyles__BkHalfCircbot-sc-1i6unua-3 bUySBQ"></div>
@@ -91,8 +86,26 @@
                     <th>Cabin</th>
                 </tr>
                 <tr>
-
+                    <td>Adult</td>
+                    <td>@item.tripInfos[0].totalPriceList[0].fd.ADULT.bI.iB  Check-In</td>
+                    <td>@item.tripInfos[0].totalPriceList[0].fd.ADULT.bI.cB  Cabin</td>
                 </tr>
+                @if (item.tripInfos[0].totalPriceList[0].fd.CHILD != null)
+                {
+                    <tr>
+                        <td>Child</td>
+                        <td>@item.tripInfos[0].totalPriceList[0].fd.CHILD.bI.iB  Check-In</td>
+                        <td>@item.tripInfos[0].totalPriceList[0].fd.CHILD.bI.cB  Cabin</td>
+                    </tr>
+                }
+                @if (item.tripInfos[0].totalPriceList[0].fd.INFANT != null)
+                {
+                    <tr>
+                        <td>Infant</td>
+                        <td>-  Check-In</td>
+                        <td>@item.tripInfos[0].totalPriceList[0].fd.INFANT.bI.cB  Cabin</td>
+                    </tr>
+                }
             </table>
         </div>
     }

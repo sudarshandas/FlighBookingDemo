@@ -18,7 +18,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
-    <script>
+    @*<script>
 
         $(document).ready(function () {
 
@@ -79,15 +79,48 @@
                 },
 
             });
-            
+
 
         });
-        function checked()
-        {
+    </script>*@
+   
+        <script>
 
-        }
-    </script>
+            function GetAirports(contolid, hiddencontrolid) {
+                debugger;
+                $("#" + contolid + "").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "/Home/GetRecord",
+                            type: "POST",
+                            dataType: "json",
+                            data: { prefix: request.term },
+                            success: function (data) {
+                                response($.map(data, function (item) {
+                                    return { label: item.City + ', ' + item.iata, val: item.iata };
+                                }))
+                            }
+                        })
+                    },
+                    /*minLength: 3,*/
+                    select: function (e, i) {
+                        $("#" + contolid + "").val(i.item.label);
+                        $("#" + hiddencontrolid + "").val(i.item.val);
+                    },
+                });
 
+            }
+
+            $(document).ready(function () {
+                
+                GetAirports('fromAirport', 'searchQuery_routeInfos_0__fromCityOrAirport_code');
+
+                //Bidn To AirPorts
+                GetAirports('toAirport', 'searchQuery_routeInfos_0__toCityOrAirport_code');
+            });
+
+        </script>
+    
 </head>
 <body>
 
@@ -119,17 +152,17 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class="form-label">Flying from</span>
-                                            @*<input class="form-control" type="text" placeholder="City or airport">*@
+                                            <input id="fromAirport" class="form-control" type="text" placeholder="City or airport">
                                            
-                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].fromCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
+                                            @Html.HiddenFor(model => model.searchQuery.routeInfos[0].fromCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class="form-label">Flyning to</span>
-                                            @*<input class="form-control" type="text" placeholder="City or airport">*@
+                                            <input id="toAirport" class="form-control" type="text" placeholder="City or airport">
                                             
-                                            @Html.TextBoxFor(model => model.searchQuery.routeInfos[0].toCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
+                                            @Html.HiddenFor(model => model.searchQuery.routeInfos[0].toCityOrAirport.code, new { @class = "form-control", @placeholder = "City or airport" })
                                         </div>
                                     </div>
                                 </div>

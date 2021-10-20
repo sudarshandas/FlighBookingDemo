@@ -24,8 +24,10 @@ namespace AutoComplete.Models
 
         public string Flight (OnewayDomesticSearchQuery.RootObject root)
         {
-            string City = root.searchQuery.routeInfos[0].fromCityOrAirport.code.Split(new Char[] { '(', ')' }, StringSplitOptions.None)[1];
-            string City1 = root.searchQuery.routeInfos[0].toCityOrAirport.code.Split(new Char[] { '(',')' }, StringSplitOptions.None)[1];
+            //string City = root.searchQuery.routeInfos[0].fromCityOrAirport.code.Split(new Char[] { '(', ')' }, StringSplitOptions.None)[1];
+            //string City1 = root.searchQuery.routeInfos[0].toCityOrAirport.code.Split(new Char[] { '(',')' }, StringSplitOptions.None)[1];
+            string City = root.searchQuery.routeInfos[0].fromCityOrAirport.code;
+            string City1 = root.searchQuery.routeInfos[0].toCityOrAirport.code;
             string ADULT = root.searchQuery.paxInfo.ADULT;
             string CHILD = root.searchQuery.paxInfo.CHILD;
             string INFANT = root.searchQuery.paxInfo.INFANT;
