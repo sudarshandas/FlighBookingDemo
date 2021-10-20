@@ -13,6 +13,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using AutoComplete.Models;
 using AutoComplete.ViewModel;
 using System.Web.Script.Serialization;
 using System.Data;
@@ -50,9 +51,7 @@ namespace AutoComplete.Controllers
 
                 searchlist.Add(new GetCity
                 {
-                    City = dr["municipality"].ToString() ,
-                    iata= dr["iata_code"].ToString() ,
-                    name = dr["name"].ToString()
+                    City = dr["municipality"].ToString() + "(" + dr["iata_code"].ToString() + "),"+ dr["name"].ToString(),
                    
                 });
 
