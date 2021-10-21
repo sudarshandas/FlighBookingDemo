@@ -11,8 +11,7 @@ namespace AutoComplete.Api
 {
     public class Tripjack
     {
-        string BaseUrl = "https://apitest.tripjack.com/fms/v1/air-search-all";
-        string apikey = "7114315c476d94-4ef2-4e21-83e8-527d56a0c529";
+        string BaseUrl = "https://apitest.tripjack.com/fms/v1/air-search-all";       
         static string returnJson, bodyText;
         OnewayDomesticSearchQuery.RootObject root = new OnewayDomesticSearchQuery.RootObject();
         

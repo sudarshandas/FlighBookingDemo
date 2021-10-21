@@ -1,4 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="AirportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="AirportsEntities" annotation:LazyLoadingEnabled="true" />
+<Schema Namespace="HAWAIADDAAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AIRPORT">
+    <Key>
+      <PropertyRef Name="AIRPORTID" />
+    </Key>
+    <Property Name="AIRPORTID" Type="Int64" Nullable="false" />
+    <Property Name="AIRPORTName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="AIRPORTContinent" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="AIRPORTISOCountry" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="AIRPORTISORegion" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="AIRPORTMunicipality" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="AIRPORTIATACode" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="AIRPORTCoordinates" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="HAWAIADDAAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORT" />
+  </EntityContainer>
 </Schema>

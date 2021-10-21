@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="AirportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'Airports.dbo.airportMaster' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="airportMaster">
-          <Property Name="ident" Type="nvarchar" MaxLength="255" />
-          <Property Name="type" Type="nvarchar" MaxLength="255" />
-          <Property Name="name" Type="nvarchar" MaxLength="255" />
-          <Property Name="elevation_ft" Type="float" />
-          <Property Name="continent" Type="nvarchar" MaxLength="255" />
-          <Property Name="iso_country" Type="nvarchar" MaxLength="255" />
-          <Property Name="iso_region" Type="nvarchar" MaxLength="255" />
-          <Property Name="municipality" Type="nvarchar" MaxLength="255" />
-          <Property Name="gps_code" Type="nvarchar" MaxLength="255" />
-          <Property Name="iata_code" Type="nvarchar" MaxLength="255" />
-          <Property Name="local_code" Type="nvarchar" MaxLength="255" />
-          <Property Name="coordinates" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-  <EntityContainer Name="AirportsModelStoreContainer" />
+<Schema Namespace="HAWAIADDAAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AIRPORTS">
+    <Key>
+      <PropertyRef Name="AIRPORTID" />
+    </Key>
+    <Property Name="AIRPORTID" Type="bigint" Nullable="false" />
+    <Property Name="AIRPORTName" Type="nvarchar" MaxLength="512" />
+    <Property Name="AIRPORTContinent" Type="nvarchar" MaxLength="512" />
+    <Property Name="AIRPORTISOCountry" Type="nvarchar" MaxLength="512" />
+    <Property Name="AIRPORTISORegion" Type="nvarchar" MaxLength="512" />
+    <Property Name="AIRPORTMunicipality" Type="nvarchar" MaxLength="512" />
+    <Property Name="AIRPORTIATACode" Type="nvarchar" MaxLength="512" />
+    <Property Name="AIRPORTCoordinates" Type="nvarchar" MaxLength="512" />
+  </EntityType>
+  <EntityContainer Name="HAWAIADDAAModelStoreContainer">
+    <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORTS" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
 </Schema>

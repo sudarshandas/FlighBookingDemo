@@ -1,4 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="AirportsModelStoreContainer" CdmEntityContainer="AirportsEntities" />
+  <EntityContainerMapping StorageEntityContainer="HAWAIADDAAModelStoreContainer" CdmEntityContainer="HAWAIADDAAEntities">
+    <EntitySetMapping Name="AIRPORTS">
+      <EntityTypeMapping TypeName="HAWAIADDAAModel.AIRPORT">
+        <MappingFragment StoreEntitySet="AIRPORTS">
+          <ScalarProperty Name="AIRPORTID" ColumnName="AIRPORTID" />
+          <ScalarProperty Name="AIRPORTName" ColumnName="AIRPORTName" />
+          <ScalarProperty Name="AIRPORTContinent" ColumnName="AIRPORTContinent" />
+          <ScalarProperty Name="AIRPORTISOCountry" ColumnName="AIRPORTISOCountry" />
+          <ScalarProperty Name="AIRPORTISORegion" ColumnName="AIRPORTISORegion" />
+          <ScalarProperty Name="AIRPORTMunicipality" ColumnName="AIRPORTMunicipality" />
+          <ScalarProperty Name="AIRPORTIATACode" ColumnName="AIRPORTIATACode" />
+          <ScalarProperty Name="AIRPORTCoordinates" ColumnName="AIRPORTCoordinates" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
 </Mapping>

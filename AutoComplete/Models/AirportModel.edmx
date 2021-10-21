@@ -4,36 +4,65 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AirportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Airports.dbo.airportMaster' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="airportMaster">
-          <Property Name="ident" Type="nvarchar" MaxLength="255" />
-          <Property Name="type" Type="nvarchar" MaxLength="255" />
-          <Property Name="name" Type="nvarchar" MaxLength="255" />
-          <Property Name="elevation_ft" Type="float" />
-          <Property Name="continent" Type="nvarchar" MaxLength="255" />
-          <Property Name="iso_country" Type="nvarchar" MaxLength="255" />
-          <Property Name="iso_region" Type="nvarchar" MaxLength="255" />
-          <Property Name="municipality" Type="nvarchar" MaxLength="255" />
-          <Property Name="gps_code" Type="nvarchar" MaxLength="255" />
-          <Property Name="iata_code" Type="nvarchar" MaxLength="255" />
-          <Property Name="local_code" Type="nvarchar" MaxLength="255" />
-          <Property Name="coordinates" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <EntityContainer Name="AirportsModelStoreContainer" />
+      <Schema Namespace="HAWAIADDAAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AIRPORTS">
+          <Key>
+            <PropertyRef Name="AIRPORTID" />
+          </Key>
+          <Property Name="AIRPORTID" Type="bigint" Nullable="false" />
+          <Property Name="AIRPORTName" Type="nvarchar" MaxLength="512" />
+          <Property Name="AIRPORTContinent" Type="nvarchar" MaxLength="512" />
+          <Property Name="AIRPORTISOCountry" Type="nvarchar" MaxLength="512" />
+          <Property Name="AIRPORTISORegion" Type="nvarchar" MaxLength="512" />
+          <Property Name="AIRPORTMunicipality" Type="nvarchar" MaxLength="512" />
+          <Property Name="AIRPORTIATACode" Type="nvarchar" MaxLength="512" />
+          <Property Name="AIRPORTCoordinates" Type="nvarchar" MaxLength="512" />
+        </EntityType>
+        <EntityContainer Name="HAWAIADDAAModelStoreContainer">
+          <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORTS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AirportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="AirportsEntities" annotation:LazyLoadingEnabled="true" />
+      <Schema Namespace="HAWAIADDAAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AIRPORT">
+          <Key>
+            <PropertyRef Name="AIRPORTID" />
+          </Key>
+          <Property Name="AIRPORTID" Type="Int64" Nullable="false" />
+          <Property Name="AIRPORTName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AIRPORTContinent" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AIRPORTISOCountry" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AIRPORTISORegion" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AIRPORTMunicipality" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AIRPORTIATACode" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AIRPORTCoordinates" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HAWAIADDAAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORT" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AirportsModelStoreContainer" CdmEntityContainer="AirportsEntities" />
+        <EntityContainerMapping StorageEntityContainer="HAWAIADDAAModelStoreContainer" CdmEntityContainer="HAWAIADDAAEntities">
+          <EntitySetMapping Name="AIRPORTS">
+            <EntityTypeMapping TypeName="HAWAIADDAAModel.AIRPORT">
+              <MappingFragment StoreEntitySet="AIRPORTS">
+                <ScalarProperty Name="AIRPORTID" ColumnName="AIRPORTID" />
+                <ScalarProperty Name="AIRPORTName" ColumnName="AIRPORTName" />
+                <ScalarProperty Name="AIRPORTContinent" ColumnName="AIRPORTContinent" />
+                <ScalarProperty Name="AIRPORTISOCountry" ColumnName="AIRPORTISOCountry" />
+                <ScalarProperty Name="AIRPORTISORegion" ColumnName="AIRPORTISORegion" />
+                <ScalarProperty Name="AIRPORTMunicipality" ColumnName="AIRPORTMunicipality" />
+                <ScalarProperty Name="AIRPORTIATACode" ColumnName="AIRPORTIATACode" />
+                <ScalarProperty Name="AIRPORTCoordinates" ColumnName="AIRPORTCoordinates" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

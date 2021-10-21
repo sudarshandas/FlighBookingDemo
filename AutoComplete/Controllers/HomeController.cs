@@ -13,7 +13,6 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using AutoComplete.Models;
 using AutoComplete.ViewModel;
 using System.Web.Script.Serialization;
 using System.Data;
@@ -27,7 +26,7 @@ namespace AutoComplete.Controllers
 {
     public class HomeController : Controller
     {
-        db Db = new db();
+        
         //string json;
         //GET:HOME
         public ActionResult Index()
@@ -41,27 +40,14 @@ namespace AutoComplete.Controllers
 
         public JsonResult GetRecord(string prefix)
         {
-
-            DataSet ds = Db.GetAirport(prefix);
-
-            List<GetCity> searchlist = new List<GetCity>();
-
-            foreach (DataRow dr in ds.Tables[0].Rows)
-
+            
+            
+            using (var context=new HAWAIADDAAEntities())
             {
-
-                searchlist.Add(new GetCity
-                {
-                    City = dr["AIRPORTMunicipality"].ToString(),
-                    iata= dr["AIRPORTIATACode"].ToString(),
-                    name= dr["AIRPORTName"].ToString(),  
-                    id= dr["AIRPORTID"].ToString()
-                });
-
+                var data = context.AIRPORTS.Where(x => x.AIRPORTMunicipality.Contains(prefix) || x.AIRPORTIATACode.Contains(prefix)).Take(10).ToList();
+                
+                return Json(data, JsonRequestBehavior.AllowGet);
             }
-
-            return Json(searchlist, JsonRequestBehavior.AllowGet);
-
         }
         [HttpPost]
         public ActionResult SearchResults(OnewayDomesticSearchQuery.RootObject query)

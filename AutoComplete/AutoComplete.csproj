@@ -218,6 +218,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AIRPORT.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AirportModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,9 +238,7 @@
     </Compile>
     <Compile Include="Models\Airports.cs" />
     <Compile Include="Models\AvailableFlight.cs" />
-    <Compile Include="Models\db.cs" />
     <Compile Include="Models\OnewayDomesticSearchQuery.cs" />
-    <Compile Include="Models\GetCity.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OnewayDomesticResult.cs" />

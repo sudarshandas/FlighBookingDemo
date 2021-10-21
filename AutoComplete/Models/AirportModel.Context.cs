@@ -13,10 +13,10 @@ namespace AutoComplete.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AirportsEntities : DbContext
+    public partial class HAWAIADDAAEntities : DbContext
     {
-        public AirportsEntities()
-            : base("name=AirportsEntities")
+        public HAWAIADDAAEntities()
+            : base("name=HAWAIADDAAEntities")
         {
         }
     
@@ -25,5 +25,6 @@ namespace AutoComplete.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AIRPORT> AIRPORTS { get; set; }
     }
 }
