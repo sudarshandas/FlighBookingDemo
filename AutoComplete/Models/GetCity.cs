@@ -8,7 +8,7 @@ namespace AutoComplete.Models
     public class GetCity
     {
         public string City { get; set; }
-        public string ident { get; set; }
+        public string id { get; set; }
         public string iata { get; set; }
         public string name { get; set; }
     }

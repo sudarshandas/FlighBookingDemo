@@ -10,14 +10,14 @@ namespace AutoComplete.Models
 {
     public class db
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection1"].ConnectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
         public DataSet GetAirport(string Prefix)
         {
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = @"select Top 10 municipality,iata_code,name from[dbo].[airportmaster] where  IATA_Code is not null and municipality LIKE '%" + Prefix + "%' or iata_code like '%" + Prefix + "%'";
+                cmd.CommandText = @"select Top 10 AIRPORTMunicipality,AIRPORTIATACode,AIRPORTName,AIRPORTID from[dbo].[AIRPORTS] where AIRPORTMunicipality LIKE '%" + Prefix + "%' or AIRPORTIATACode like '%" + Prefix + "%'";
                 cmd.Connection = con;
                 con.Open();
                 DataSet ds = new DataSet();

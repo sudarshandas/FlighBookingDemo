@@ -33,14 +33,14 @@ namespace AutoComplete.Models
             string INFANT = root.searchQuery.paxInfo.INFANT;
             string cabinClass = root.searchQuery.cabinClass;
             string travelDate = root.searchQuery.routeInfos[0].travelDate;
-            string returnDate,text2;
-            if (root.searchQuery.routeInfos[0].returnDate != null)
-            {
-                returnDate = root.searchQuery.routeInfos[0].returnDate;
-                text2 = "{\"fromCityOrAirport\":{\"code\":\"" + City1 + "\"},\"toCityOrAirport\":{\"code\":\"" + City + "\"},\"travelDate\":\"" + returnDate + "\"}";
-            }
-            else
-                text2 = null;
+            string returnDate,text2="";
+            //if (root.searchQuery.routeInfos[0].returnDate != null)
+            //{
+            //    returnDate = root.searchQuery.routeInfos[0].returnDate;
+            //    text2 = "{\"fromCityOrAirport\":{\"code\":\"" + City1 + "\"},\"toCityOrAirport\":{\"code\":\"" + City + "\"},\"travelDate\":\"" + returnDate + "\"}";
+            //}
+            //else
+            //    text2 = null;
             
             //bool direct = root.searchQuery.searchModifiers.isDirectFlight;
             text = "{\"searchQuery\":{\"cabinClass\":\""+cabinClass+"\",\"paxInfo\":{\"ADULT\":\""+ADULT+"\",\"CHILD\":\""+CHILD+"\",\"INFANT\":\""+INFANT+"\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\""+City+"\"},\"toCityOrAirport\":{\"code\":\""+City1+"\"},\"travelDate\":\""+ travelDate + "\"}"+text2+"],\"searchModifiers\":{\"isDirectFlight\":true,\"isConnectingFlight\":false}}}";

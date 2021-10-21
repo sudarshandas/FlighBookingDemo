@@ -21,6 +21,7 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization.Json;
+using AutoComplete.Api;
 
 namespace AutoComplete.Controllers
 {
@@ -51,8 +52,10 @@ namespace AutoComplete.Controllers
 
                 searchlist.Add(new GetCity
                 {
-                    City = dr["municipality"].ToString() + "(" + dr["iata_code"].ToString() + "),"+ dr["name"].ToString(),
-                   
+                    City = dr["AIRPORTMunicipality"].ToString(),
+                    iata= dr["AIRPORTIATACode"].ToString(),
+                    name= dr["AIRPORTName"].ToString(),  
+                    id= dr["AIRPORTID"].ToString()
                 });
 
             }
@@ -61,23 +64,17 @@ namespace AutoComplete.Controllers
 
         }
         [HttpPost]
-        public ActionResult SearchResults(OnewayDomesticSearchQuery.RootObject fc)
+        public ActionResult SearchResults(OnewayDomesticSearchQuery.RootObject query)
         {
-            ViewBag.City = fc.searchQuery.routeInfos[0].fromCityOrAirport.code;
-            ViewBag.City1 = fc.searchQuery.routeInfos[0].toCityOrAirport.code;
-            ViewBag.ADULT = fc.searchQuery.paxInfo.ADULT;
-            ViewBag.CHILD = fc.searchQuery.paxInfo.CHILD;
-            ViewBag.INFANT = fc.searchQuery.paxInfo.INFANT;
-            ViewBag.cabinClass = fc.searchQuery.cabinClass;
-            AvailableFlight availale = new AvailableFlight();
-            var json = new JavaScriptSerializer().Serialize(fc);           
+            Tripjack apiTripjack = new Tripjack();
+            
+            var json = new JavaScriptSerializer().Serialize(query);           
 
-            var ResultJson= availale.Flight(fc);
-            var rec = JsonConvert.DeserializeObject<OnewayDomesticResult.Rootobject>(ResultJson);
+            var ResultJson= apiTripjack.apiCall(query,json);
+            var searchResult = JsonConvert.DeserializeObject<OnewayDomesticResult.Rootobject>(ResultJson);
             
-            
-            TempData["OnewayDomesticResult"] = rec;
-            TempData["onewayDomesticSearchQuery"] = fc;
+            TempData["OnewayDomesticResult"] = searchResult;
+            TempData["onewayDomesticSearchQuery"] = query;
 
             return RedirectToAction("SeachView");
         }

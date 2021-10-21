@@ -8,7 +8,7 @@ namespace AutoComplete.Models
     public static class OnewayDomesticSearchQuery
     {
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
-
+        public static bool directFlight, connectingFlight;
         public class RootObject
         {
             public Searchquery searchQuery { get; set; }
@@ -25,7 +25,7 @@ namespace AutoComplete.Models
             public string cabinClass { get; set; }
             public Paxinfo paxInfo { get; set; }
             public Routeinfo[] routeInfos { get; set; }
-            public Searchmodifiers searchModifiers { get; set; }
+            public Searchmodifiers searchModifiers { get ; set; }
         }
 
         public class Paxinfo
@@ -37,8 +37,26 @@ namespace AutoComplete.Models
 
         public class Searchmodifiers
         {
-            public bool isDirectFlight { get; set; }
-            public bool isConnectingFlight { get; set; }
+            public bool isDirectFlight
+            {
+                get {
+                    return directFlight;
+                } set
+                {
+                    directFlight = true;
+                }
+            }
+            public bool isConnectingFlight
+            {
+                get
+                {
+                    return connectingFlight;
+                }
+                set
+                {
+                    connectingFlight = false;
+                }
+            }
         }
 
         public class Routeinfo
@@ -46,7 +64,6 @@ namespace AutoComplete.Models
             public Fromcityorairport fromCityOrAirport { get; set; }
             public Tocityorairport toCityOrAirport { get; set; }
             public string travelDate { get; set; }
-            public string returnDate { get; set; }
         }
 
         public class Fromcityorairport

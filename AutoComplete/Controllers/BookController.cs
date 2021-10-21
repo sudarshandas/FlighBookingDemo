@@ -4,11 +4,13 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoComplete.ActionFilters;
 using AutoComplete.Models;
 using Newtonsoft.Json;
 
 namespace AutoComplete.Controllers
 {
+    [SessionTimout]
     public class BookController : Controller
     {
         // GET: Book

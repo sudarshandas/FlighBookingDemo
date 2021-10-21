@@ -177,12 +177,14 @@
                         </th>
 
                     </tr>
-
+                    
                     @foreach (var item in root)
                     {
-                        int i = 0, j = 0;
-                        foreach (var searchResult in item.searchResult.tripInfos.ONWARD)
+                        if (item.searchResult.tripInfos != null)
                         {
+                            int i = 0, j = 0;
+                            foreach (var searchResult in item.searchResult.tripInfos.ONWARD)
+                            {
 
 
                             <tr>
@@ -212,8 +214,8 @@
                                     <td><br /></td>
                                 </tr>
 
-                            foreach (var Price in searchResult.totalPriceList)
-                            {
+                                foreach (var Price in searchResult.totalPriceList)
+                                {
                                 <tr>
                                     <td>
                                         -
@@ -242,14 +244,15 @@
                                             <br />
                                         </td>
                                     </tr>
-                                j++;
+                                    j++;
 
-                            }
+                                }
                             <tr>
                                 <td>
                                     <br />
                                 </td>
                             </tr>
+                            }
                         }
                     }
 
