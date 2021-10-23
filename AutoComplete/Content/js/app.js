@@ -375,6 +375,11 @@ jQuery(document).ready(function ($) {
     $(".rt-modal-input.two , .rt-modal-headr.two").addClass("show-cac");
     $(".rt-modal-input.one, .rt-modal-headr.one").addClass("hide-cac");
   });
+    $('.close-creatac').on("click", function () {
+        $(".rt-modal-input.one, .rt-modal-headr.one").addClass("show-cac");
+        $(".rt-modal-input.two , .rt-modal-headr.two").addClass("hide-cac");
+        
+    });
   $('.rt-selectactive').select2({
     minimumResultsForSearch: Infinity
   });

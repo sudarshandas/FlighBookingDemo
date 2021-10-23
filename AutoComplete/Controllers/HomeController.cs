@@ -22,13 +22,16 @@ using System.Text;
 using System.Runtime.Serialization.Json;
 using AutoComplete.Api;
 
+
 namespace AutoComplete.Controllers
 {
+    
     public class HomeController : Controller
     {
-        
+
         //string json;
         //GET:HOME
+        
         public ActionResult Index()
         {
             var Trav = from OnewayDomesticSearchQuery.TravelClass e in Enum.GetValues(typeof(OnewayDomesticSearchQuery.TravelClass))
@@ -40,8 +43,6 @@ namespace AutoComplete.Controllers
 
         public JsonResult GetRecord(string prefix)
         {
-            
-            
             using (var context=new HAWAIADDAAEntities())
             {
                 var data = context.AIRPORTS.Where(x => x.AIRPORTMunicipality.Contains(prefix) || x.AIRPORTIATACode.Contains(prefix)).Take(10).ToList();
@@ -53,12 +54,16 @@ namespace AutoComplete.Controllers
         public ActionResult SearchResults(OnewayDomesticSearchQuery.RootObject query)
         {
             Tripjack apiTripjack = new Tripjack();
-            
+            query.searchQuery.searchModifiers.isDirectFlight = true;
             var json = new JavaScriptSerializer().Serialize(query);           
 
-            var ResultJson= apiTripjack.apiCall(query,json);
-            var searchResult = JsonConvert.DeserializeObject<OnewayDomesticResult.Rootobject>(ResultJson);
-            
+            //var ResultJson= apiTripjack.apiCall(query,json);
+           
+            query.searchQuery.searchModifiers.isDirectFlight = false;
+            var json2= new JavaScriptSerializer().Serialize(query);
+            var ResultJson1 = apiTripjack.apiCall(query, json2);
+            var searchResult = JsonConvert.DeserializeObject<OnewayDomesticResult.Rootobject>(ResultJson1);
+            //var cou = searchResult.searchResult.tripInfos.ONWARD[2].sI[0].so != null;
             TempData["OnewayDomesticResult"] = searchResult;
             TempData["onewayDomesticSearchQuery"] = query;
 
@@ -84,6 +89,7 @@ namespace AutoComplete.Controllers
             TempData["onewayDomesticSearchQuery"] = model1;
             return View(root1);
         }
+        
         [HttpPost]
         public ActionResult PostData(string cabinClass)
         {

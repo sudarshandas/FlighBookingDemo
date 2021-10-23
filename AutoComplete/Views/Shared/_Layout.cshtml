@@ -2,43 +2,329 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    <title>@ViewBag.Title - HawaiAdda</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <link rel="icon" type="image/png" href="~/Img/favicon.png">
+    <!-- ==================Start Css Link===================== -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/CSS/animate.css">
+    <link rel="stylesheet" href="~/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="~/CSS/datepicker.min.css">
+    <link rel="stylesheet" href="~/CSS/OverlayScrollbars.min.css">
+    @*<link rel="stylesheet" href="~/CSS/fontawesome.css">*@
+    <link rel="stylesheet" href="~/CSS/icofont.css">
+    <link rel="stylesheet" href="~/CSS/magnific-popup.css">
+    <link rel="stylesheet" href="~/CSS/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/CSS/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/CSS/slick.css">
+    <link rel="stylesheet" href="~/CSS/slick-theme.css">
+    <link rel="stylesheet" href="~/CSS/slider-range.css">
+    <link rel="stylesheet" href="~/CSS/select2.min.css">
+    <link rel="stylesheet" href="~/CSS/tippy.css">
+    <link rel="stylesheet" href="~/CSS/app.css">
+    <script src="https://kit.fontawesome.com/4f89983ae8.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Auto Complete TextBox", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body style="background-color:skyblue;">
+    <!--<div class="rt-preloder">
+        <div class="preloder-box">
+            <img src="~/Img/all-img/preloder.svg" alt="preloder image" draggable="false">
+        </div>-->
+    <!-- /.preloder-box -->
+    <!--</div>--><!-- /.rt-preloder -->
+    <header class="rt-site-header  rt-fixed-top white-menu" style="background-image: url(/Img/backgrounds/bredcump.png)">
+
+        <div class="top-header rt-light-text d-none d-md-block">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <ul class="text-center text-md-left top-message">
+                            <li> <i class="icofont-headphone-alt"></i>Support</li>
+                            <li>
+                                <a href="http://pixner.net/cdn-cgi/l/email-protection#40292e262f00252d29273221326e232f2d60">
+                                    <i class="icofont-email"></i><span class="__cf_email__"
+                                                                       data-cfemail="eb82858d84ab8e86828c998a99c5888486">[email&#160;protected]</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- end top header single -->
+                    <div class="col-md-6">
+                        <ul class="text-center text-md-right top-social">
+                            <li>
+                                <a href="#" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-globe-americas"></i>Englishs
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">English</a>
+                                    <a class="dropdown-item" href="#">French</a>
+                                    <a class="dropdown-item" href="#">Trukis</a>
+                                </div>
+                            </li>
+                            <li><a href="#"><i class="fas fa-briefcase"></i>My Trips</a></li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#rtmodal-1">
+                                    <i class="far fa-user-circle"></i>Sign in | Join
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- end top header single -->
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+        </div> <!-- end top header -->
+
+        <div class="main-header rt-sticky">
+            <nav class="navbar">
+                <div class="container">
+                    <a href="index.html" class="brand-logo"><img src="~/Img/logo/logo-white.png" alt=""></a>
+                    <a href="index.html" class="sticky-logo"><img src="~/Img/logo/logo.png" alt=""></a>
+                    <div class="ml-auto d-flex align-items-center">
+
+
+                        <div class="main-menu">
+                            <ul>
+                                <li class="current-menu-item"><a href="#home">Home</a></li>
+                                <li><a href="trip-1.html">Trip package</a></li>
+                                <li><a href="service-1.html">Services</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Pages</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Home Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="index.html">Home One</a></li>
+                                                <li><a href="index-02.html">Home Two</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Hotel Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="hotel-1.html">Hotel One</a></li>
+                                                <li><a href="hotel-2.html">Hotel Two</a></li>
+                                                <li><a href="hotel-3.html">Hotel Three</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Flight Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="flight-1.html">Flight One</a></li>
+                                                <li><a href="flight-details.html">Flight Two</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">train Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="train-1.html">train One</a></li>
+                                                <li><a href="train-2.html">train Two</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">trip Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="trip-1.html">trip One</a></li>
+                                                <li><a href="trip-2.html">trip Two</a></li>
+                                                <li><a href="trip-3.html">trip Three</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">car Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="car-1.html">car One</a></li>
+                                                <li><a href="car-2.html">car Two</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">blog Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="blog-grid.html">blog-grid</a></li>
+                                                <li><a href="single-blog.html">blog-single 1</a></li>
+                                                <li><a href="singleblog-lsidebar.html">blog-single 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Others Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="service-1.html">service</a></li>
+                                                <li><a href="afflite.html">afflite</a></li>
+                                                <li><a href="help.html">help</a></li>
+                                                <li><a href="how-work.html">how-work</a></li>
+                                                <li><a href="contact.html">contact</a></li>
+                                                <li><a href="404.html">404</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li> <a href="blog.html">Blog</a></li>
+                                <li class="current-menu-item"><a href="#"><i class="fas fa-briefcase"></i>  My Trips</a></li>
+                                <li class="current-menu-item">
+                                    <a href="#" data-toggle="modal" data-target="#rtmodal-1">
+                                        <i class="far fa-user-circle"></i>  Sign in |
+                                        Join
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="mobile-menu">
+                                <div class="menu-click">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+
+                        </div><!-- end main menu -->
+
+
+
+                    </div>
+                    <!-- <div class="rt-nav-tolls d-flex align-items-center">
+                        <span class="d-md-inline d-none"><a href="#" data-toggle="modal" data-target="#rtmodal-1"
+                                class="rt-btn rt-gradient2 rt-rounded text-uppercase rt-Bshadow-1"><i
+                                    class="far fa-user-circle"></i> Sign in | Join</a></span>
+                    </div> -->
+
+                </div>
+            </nav>
+        </div>
+
+        <!-- /.bootom-header -->
+
+    </header>
+    <div class="rt-breadcump rt-breadcump-height with-logn-height">
+        <div class="rt-page-bg rtbgprefix-cover" style="background-image: url(~/Img/backgrounds/bredcump.png)">
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="rtmodal-1" tabindex="-1" role="dialog" aria-labelledby="rtmodal-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered rt-lgoinmodal " role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="rt-modal-headr rt-mb-20 one">
+                        <img src="~/Img/logo/Logo-icon.png" alt="modal logo" draggable="false">
+                        <h4>Login in to Emigrar</h4>
+                        <p>
+                            Log in to get in the moment updates on the things
+                            that interest you.
+                        </p>
+                    </div><!-- /.rt-modal-headr -->
+                    <div class="rt-modal-headr rt-mb-20 two">
+                        <img src="~/Img/logo/Logo-icon.png" alt="modal logo" draggable="false">
+                        <h4>Create your Account</h4>
+                        <p>
+                            Log in to get in the moment updates on the things
+                            that interest you.
+                        </p>
+                    </div><!-- /.rt-modal-headr -->
+                    <div class="rt-modal-input one">
+                        <form action="#" class="rt-form">
+                            <input type="text" class="form-control pill rt-mb-15" placeholder="User name">
+                            <input type="password" class="form-control pill rt-mb-15" placeholder="Password">
+                            <div class="form-group forgot-pass">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheckss">
+                                    <label class="form-check-label" for="gridCheckss">
+                                        Remember Password
+                                    </label>
+                                </div><!-- ./orm-group -->
+                            </div>
+                            <input type="submit" class="rt-btn rt-gradient pill d-block text-uppercase " value="Log In">
+                        </form>
+                        <div class="ac-register">
+                            <span>
+                                Don’t have an account? <a href="#" class="open-creatac">
+                                    Sign Up Now <i class="icofont-double-right"></i>
+                                </a>
+                            </span>
+                        </div><!-- /.ac-register -->
+                    </div><!-- /.rt-modal-input -->
+                    <div class="rt-modal-input two">
+                        <form action="#" class="rt-form">
+                            <input type="text" class="form-control pill rt-mb-15" placeholder="User name">
+                            <input type="password" class="form-control pill rt-mb-15"
+                                   placeholder="Enter your mail address">
+                            <input type="password" class="form-control pill rt-mb-15" placeholder="Password">
+                            <div class="form-group forgot-pass">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck333">
+                                    <label class="form-check-label" for="gridCheck333">
+                                        I'd like to hear about promos, new products,and much more!
+                                    </label>
+                                </div><!-- ./orm-group -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck222">
+                                    <label class="form-check-label" for="gridCheck222">
+                                        By clicking "Sign up" you agree to our Terms of Service and Privacy Policy
+                                    </label>
+                                </div><!-- ./orm-group -->
+                            </div>
+                            <input type="submit" class="rt-btn rt-gradient pill d-block text-uppercase " value="Log In">
+                        </form>
+                        <div class="ac-register">
+                            <span>
+                                Already have an account?<a href="#" class="close-creatac">
+                                    LOGIN <i class="icofont-double-right"></i>
+                                </a>
+                            </span>
+
+                        </div><!-- /.ac-register -->
+                    </div><!-- /.rt-modal-input -->
+                    <div class="rt-modal-footer">
+                        <span>Or</span>
+                        <h4>Sign Up with social media</h4>
+                        <ul class="rt-social rt-circle-style2">
+
+                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                        </ul>
+                    </div><!-- /.rt-modal-footer -->
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="margin-top:200px">
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+    <!-- ==================Start Js Link===================== -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script src="~/Content/js/jquery-2.2.4.min.js"></script>
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/moment.min.js"></script>
+    <script src="~/Content/js/jquery.easing.1.3.js"></script>
+    <script src="~/Content/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Content/js/isotope.pkgd.min.js"></script>
+    <script src="~/Content/js/instafeed.min.js"></script>
+    <script src="~/Content/js/waypoints.min.js"></script>
+    <script src="~/Content/js/jquery.counterup.min.js"></script>
+    <script src="~/Content/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Content/js/jquery.scrollUp.min.js"></script>
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+    <script src="~/Content/js/TweenMax.min.js"></script>
+    <script src="~/Content/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&amp;key=AIzaSyCy7becgYuLwns3uumNm6WdBYkBpLfy44k"></script>
+    <script src="~/Content/js/wow.js"></script>
+    <script src="~/Content/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="~/Content/js/jquery-ui.js"></script>
+    <script src="~/Content/js/jquery.appear.js"></script>
+    <script src="~/Content/js/select2.min.js"></script>
+    <script src="~/Content/js/slick.min.js"></script>
+    <script src="~/Content/js/slider-range.js"></script>
+    <script src="~/Content/js/vivus.min.js"></script>
+    <script src="~/Content/js/tippy.all.min.js"></script>
+    <script src="~/Content/js/app.js"></script>
+
+    <!-- ==================End Js Link===================== -->
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @*@RenderSection("scripts", required: false)*@
 </body>
 </html>

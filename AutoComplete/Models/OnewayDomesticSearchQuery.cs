@@ -39,22 +39,17 @@ namespace AutoComplete.Models
         {
             public bool isDirectFlight
             {
-                get {
-                    return directFlight;
-                } set
-                {
-                    directFlight = true;
-                }
+                get;set;
             }
             public bool isConnectingFlight
             {
                 get
                 {
-                    return connectingFlight;
+                    return connectingFlight=false;
                 }
                 set
                 {
-                    connectingFlight = false;
+                    
                 }
             }
         }

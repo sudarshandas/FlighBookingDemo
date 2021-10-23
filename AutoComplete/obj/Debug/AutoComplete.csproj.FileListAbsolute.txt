@@ -429,7 +429,6 @@ D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.AssemblyR
 D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.CoreCompileInputs.cache
 D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.dll
 D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.pdb
-D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csprojAssemblyReference.cache
 D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.CoreCompileInputs.cache
-D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.CopyComplete
 D:\ASP MVC\FlighBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.CopyComplete
+D:\Update\FlightBookingDemo\AutoComplete\obj\Debug\AutoComplete.csproj.AssemblyReference.cache

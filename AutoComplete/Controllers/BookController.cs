@@ -4,19 +4,17 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AutoComplete.ActionFilters;
 using AutoComplete.Models;
 using Newtonsoft.Json;
 
 namespace AutoComplete.Controllers
 {
-    [SessionTimout]
+   
     public class BookController : Controller
     {
         // GET: Book
         public ActionResult Review(string id)
         {
-            
                 ReviewRevalidate review = new ReviewRevalidate();
                 var result = review.reviewrevalidate(id);
                 var rec = JsonConvert.DeserializeObject<ReviewOrRevalidateResult.Rootobject>(result);

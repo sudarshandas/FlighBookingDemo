@@ -7,9 +7,11 @@
 
 <html>
 <head>
-   
+
     <meta name="viewport" content="width=device-width" />
     <link href="~/CSS/Style1.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <title>Index</title>
 </head>
 <body>
@@ -73,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="flight-detailstyles__BkHalfCircbot-sc-1i6unua-3 bUySBQ"></div>
@@ -109,5 +111,24 @@
             </table>
         </div>
     }
+    <script type="text/javascript">
+        var interval = null;
+        var counter = 0;
+        function StartTimer() {
+            if (interval == null) {
+                interval = setInterval(function () {
+                    counter += 1;
+                    // Do your task.
+                    if (counter >= 10) {
+                        location.replace("/Home/SeachView")
+                    }
+                }, 1000);
+            }
+            
+        }
+        $(document).ready(function () {
+            StartTimer()
+        });
+    </script>
 </body>
 </html>

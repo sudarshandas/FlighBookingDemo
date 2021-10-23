@@ -1,6 +1,6 @@
 ﻿@model AutoComplete.Models.OnewayDomesticSearchQuery.RootObject
 @{
-    Layout = null;
+    //Layout = null;
 
 }
 
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link href="~/CSS/style.css" rel="stylesheet" />
 
-    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/CSS/bootstrap.min.css" rel="stylesheet" />*@
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -194,6 +194,7 @@
                             </div>
                         </form>
                         }
+                        @Session.Timeout
                     </div>
                 </div>
             </div>

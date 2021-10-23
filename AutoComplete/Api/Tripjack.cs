@@ -19,14 +19,14 @@ namespace AutoComplete.Api
         {
             //string City = root.searchQuery.routeInfos[0].fromCityOrAirport.code.Split(new Char[] { '(', ')' }, StringSplitOptions.None)[1];
             //string City1 = root.searchQuery.routeInfos[0].toCityOrAirport.code.Split(new Char[] { '(',')' }, StringSplitOptions.None)[1];
-            string fromCode = root.searchQuery.routeInfos[0].fromCityOrAirport.code;
-            string toCode = root.searchQuery.routeInfos[0].toCityOrAirport.code;
-            string ADULT = root.searchQuery.paxInfo.ADULT;
-            string CHILD = root.searchQuery.paxInfo.CHILD;
-            string INFANT = root.searchQuery.paxInfo.INFANT;
-            string cabinClass = root.searchQuery.cabinClass;
-            string travelDate = root.searchQuery.routeInfos[0].travelDate;
-            string returnDate, returnBody="";
+            //string fromCode = root.searchQuery.routeInfos[0].fromCityOrAirport.code;
+            //string toCode = root.searchQuery.routeInfos[0].toCityOrAirport.code;
+            //string ADULT = root.searchQuery.paxInfo.ADULT;
+            //string CHILD = root.searchQuery.paxInfo.CHILD;
+            //string INFANT = root.searchQuery.paxInfo.INFANT;
+            //string cabinClass = root.searchQuery.cabinClass;
+            //string travelDate = root.searchQuery.routeInfos[0].travelDate;
+            //string returnDate, returnBody="";
             //if (root.searchQuery.routeInfos[0].returnDate != null)
             //{
             //    returnDate = root.searchQuery.routeInfos[0].returnDate;
@@ -36,8 +36,8 @@ namespace AutoComplete.Api
             //    returnBody = null;
 
             //bool direct = root.searchQuery.searchModifiers.isDirectFlight;
-            bodyText = "{\"searchQuery\":{\"cabinClass\":\"" + cabinClass + "\",\"paxInfo\":{\"ADULT\":\"" + ADULT + "\",\"CHILD\":\"" + CHILD + "\",\"INFANT\":\"" + INFANT + "\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\"" + fromCode + "\"},\"toCityOrAirport\":{\"code\":\"" + toCode + "\"},\"travelDate\":\"" + travelDate + "\"}" + returnBody + "],\"searchModifiers\":{\"isDirectFlight\":true,\"isConnectingFlight\":false}}}";
-            JObject body = JObject.Parse(bodyText);
+            //bodyText = "{\"searchQuery\":{\"cabinClass\":\"" + cabinClass + "\",\"paxInfo\":{\"ADULT\":\"" + ADULT + "\",\"CHILD\":\"" + CHILD + "\",\"INFANT\":\"" + INFANT + "\"},\"routeInfos\":[{\"fromCityOrAirport\":{\"code\":\"" + fromCode + "\"},\"toCityOrAirport\":{\"code\":\"" + toCode + "\"},\"travelDate\":\"" + travelDate + "\"}" + returnBody + "],\"searchModifiers\":{\"isDirectFlight\":true,\"isConnectingFlight\":false}}}";
+            //JObject body = JObject.Parse(bodyText);
 
             var restclient = new RestClient(BaseUrl);
             restclient.Timeout = -1;
