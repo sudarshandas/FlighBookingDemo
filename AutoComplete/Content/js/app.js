@@ -373,7 +373,10 @@ jQuery(document).ready(function ($) {
 
   $('.open-creatac').on("click", function () {
     $(".rt-modal-input.two , .rt-modal-headr.two").addClass("show-cac");
-    $(".rt-modal-input.one, .rt-modal-headr.one").addClass("hide-cac");
+      $(".rt-modal-input.one, .rt-modal-headr.one").addClass("hide-cac");
+      $(".rt-modal-input.two , .rt-modal-headr.two").removeClass("hide-cac");
+      removeClass
+
   });
     $('.close-creatac').on("click", function () {
         $(".rt-modal-input.one, .rt-modal-headr.one").addClass("show-cac");
