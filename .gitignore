@@ -8,3 +8,5 @@ AutoComplete/Models/Airports.cs
 AutoComplete/Models/Airports.cs
 AutoComplete/Models/AirportModel.edmx
 AutoComplete/Models/AirportModel.edmx
+AutoComplete/Models/AirportModel.Designer.cs
+AutoComplete/Models/AirportModel.edmx
