@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="~/CSS/app.css">
     <script src="https://kit.fontawesome.com/4f89983ae8.js" crossorigin="anonymous"></script>
 </head>
-<body >
+<body>
     <!--<div class="rt-preloder">
         <div class="preloder-box">
             <img src="~/Img/all-img/preloder.svg" alt="preloder image" draggable="false">
@@ -37,7 +37,7 @@
     <!--</div>--><!-- /.rt-preloder -->
     <header class="rt-site-header  rt-fixed-top white-menu" style="background-image: url(/Img/backgrounds/bredcump.png)">
 
-        
+
 
         <div class="main-header rt-sticky">
             <nav class="navbar">
@@ -249,13 +249,13 @@
             </div>
         </div>
     </div>
-    <div  style="margin-top:200px">
+    <div style="margin-top:200px">
         @RenderBody()
-        
+
         <footer>
             <!--
-       !============= Footer Area Start ===========!
-    -->
+               !============= Footer Area Start ===========!
+            -->
             <section class="rt-site-footer" data-scrollax-parent="true">
                 <div class="rt-shape-emenetns-1" style="background-image: url(~/Img/shape-elements/shape-4.png)"
                      data-scrollax="properties: { translateY: '340px' }"></div><!-- /.rt-shape-emenetns-1 -->
@@ -448,10 +448,11 @@
     <script src="~/Content/js/vivus.min.js"></script>
     <script src="~/Content/js/tippy.all.min.js"></script>
     <script src="~/Content/js/app.js"></script>
+ 
 
     <!-- ==================End Js Link===================== -->
     @*@Scripts.Render("~/bundles/jquery")*@
     @*@Scripts.Render("~/bundles/bootstrap")*@
-    @*@RenderSection("scripts", required: false)*@
+    @RenderSection("scripts", required: false)
 </body>
 </html>

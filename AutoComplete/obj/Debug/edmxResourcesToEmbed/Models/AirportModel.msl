@@ -2,16 +2,16 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="HAWAIADDAAModelStoreContainer" CdmEntityContainer="HAWAIADDAAEntities">
     <EntitySetMapping Name="AIRPORTS">
-      <EntityTypeMapping TypeName="HAWAIADDAAModel.AIRPORT">
+      <EntityTypeMapping TypeName="IsTypeOf(HAWAIADDAAModel.AIRPORT)">
         <MappingFragment StoreEntitySet="AIRPORTS">
           <ScalarProperty Name="AIRPORTID" ColumnName="AIRPORTID" />
-          <ScalarProperty Name="AIRPORTName" ColumnName="AIRPORTName" />
-          <ScalarProperty Name="AIRPORTContinent" ColumnName="AIRPORTContinent" />
-          <ScalarProperty Name="AIRPORTISOCountry" ColumnName="AIRPORTISOCountry" />
-          <ScalarProperty Name="AIRPORTISORegion" ColumnName="AIRPORTISORegion" />
-          <ScalarProperty Name="AIRPORTMunicipality" ColumnName="AIRPORTMunicipality" />
-          <ScalarProperty Name="AIRPORTIATACode" ColumnName="AIRPORTIATACode" />
           <ScalarProperty Name="AIRPORTCoordinates" ColumnName="AIRPORTCoordinates" />
+          <ScalarProperty Name="AIRPORTIATACode" ColumnName="AIRPORTIATACode" />
+          <ScalarProperty Name="AIRPORTMunicipality" ColumnName="AIRPORTMunicipality" />
+          <ScalarProperty Name="AIRPORTISORegion" ColumnName="AIRPORTISORegion" />
+          <ScalarProperty Name="AIRPORTISOCountry" ColumnName="AIRPORTISOCountry" />
+          <ScalarProperty Name="AIRPORTContinent" ColumnName="AIRPORTContinent" />
+          <ScalarProperty Name="AIRPORTName" ColumnName="AIRPORTName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

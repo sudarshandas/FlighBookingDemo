@@ -250,6 +250,7 @@
     <Compile Include="Models\ReviewRevalidate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewMethod\SearchViewMethod.cs" />
     <Compile Include="ViewModel\ResultView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -491,6 +492,7 @@
       <DependentUpon>AirportModel.edmx</DependentUpon>
     </Content>
     <Content Include="libman.json" />
+    <Content Include="Json\DomesticReturn.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

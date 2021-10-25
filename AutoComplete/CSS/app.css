@@ -14189,10 +14189,6 @@ span.menu-title
 {
     display: none;
 }
-.rt-lgoinmodal .modal-content .modal-body .rt-modal-headr.one.show-cac
-{
-    display: block;
-}
 .rt-lgoinmodal .modal-content .modal-body .rt-modal-headr.two
 {
     display: none;
@@ -14201,10 +14197,6 @@ span.menu-title
 {
     display: block;
 }
-    .rt-lgoinmodal .modal-content .modal-body .rt-modal-headr.two.hide-cac
-    {
-        display: none;
-    }
 .rt-lgoinmodal .modal-content .modal-body .rt-modal-input
 {
     padding-right: 30px; 

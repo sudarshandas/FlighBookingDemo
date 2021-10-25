@@ -21,8 +21,7 @@ using System.IO;
 using System.Text;
 using System.Runtime.Serialization.Json;
 using AutoComplete.Api;
-
-
+using AutoComplete.ViewMethod;
 
 namespace AutoComplete.Controllers
 {
@@ -62,9 +61,14 @@ namespace AutoComplete.Controllers
            
             query.searchQuery.searchModifiers.isDirectFlight = false;
             var json2= new JavaScriptSerializer().Serialize(query);
-            var ResultJson1 = apiTripjack.apiCall(query, json2);
+            // var ResultJson1 = apiTripjack.apiCall(query, json2);
+            var ResultJson1 =System.IO.File.ReadAllText(@"D:\Update\FlightBookingDemo\AutoComplete\Json\DomesticReturn.json");
+
             var searchResult = JsonConvert.DeserializeObject<OnewayDomesticResult.Rootobject>(ResultJson1);
-            //var cou = searchResult.searchResult.tripInfos.ONWARD[2].sI[0].so != null;
+           // var cou = searchResult.searchResult.tripInfos.ONWARD[2].sI[0].da.terminal.Split(new Char[] { ' ' }, StringSplitOptions.None)[1].Length > 0;
+           // var countSpaces = searchResult.searchResult.tripInfos.ONWARD[0].sI[0].da.terminal.Split(new Char[] { ' ' }, StringSplitOptions.None);
+            //int val;
+            //var co = Int32.TryParse(searchResult.searchResult.tripInfos.ONWARD[0].sI[0].da.terminal.Substring(searchResult.searchResult.tripInfos.ONWARD[0].sI[0].da.terminal.Length - 1), out val);
             TempData["OnewayDomesticResult"] = searchResult;
             TempData["onewayDomesticSearchQuery"] = query;
 
@@ -74,7 +78,7 @@ namespace AutoComplete.Controllers
         public ActionResult SeachView()
         {
             //This Action and View For OnewayDomectic Search Only
-
+            
             var model = TempData["OnewayDomesticResult"] as OnewayDomesticResult.Rootobject;
             var model1 = TempData["onewayDomesticSearchQuery"] as OnewayDomesticSearchQuery.RootObject;
             List<OnewayDomesticResult.Rootobject> root = new List<OnewayDomesticResult.Rootobject>();
@@ -86,6 +90,8 @@ namespace AutoComplete.Controllers
             //ResultView rv = new ResultView();
             //ViewBag.price=rv.CalPrice(root,model1);
             //return View(root.AsEnumerable());
+            SearchViewMethod viewMethod = new SearchViewMethod();
+            viewMethod.searchViewMethod(root);
             TempData["OnewayDomesticResult"] = model;
             TempData["onewayDomesticSearchQuery"] = model1;
             return View(root1);

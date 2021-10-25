@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HAWAIADDAAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HAWAIADDAAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AIRPORTS">
           <Key>
             <PropertyRef Name="AIRPORTID" />
@@ -21,8 +21,7 @@
         <EntityContainer Name="HAWAIADDAAModelStoreContainer">
           <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORTS" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HAWAIADDAAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -41,7 +40,7 @@
         </EntityType>
         <EntityContainer Name="HAWAIADDAAEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORT" />
-        </EntityContainer>
+          </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -49,20 +48,20 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HAWAIADDAAModelStoreContainer" CdmEntityContainer="HAWAIADDAAEntities">
           <EntitySetMapping Name="AIRPORTS">
-            <EntityTypeMapping TypeName="HAWAIADDAAModel.AIRPORT">
+            <EntityTypeMapping TypeName="IsTypeOf(HAWAIADDAAModel.AIRPORT)">
               <MappingFragment StoreEntitySet="AIRPORTS">
                 <ScalarProperty Name="AIRPORTID" ColumnName="AIRPORTID" />
-                <ScalarProperty Name="AIRPORTName" ColumnName="AIRPORTName" />
-                <ScalarProperty Name="AIRPORTContinent" ColumnName="AIRPORTContinent" />
-                <ScalarProperty Name="AIRPORTISOCountry" ColumnName="AIRPORTISOCountry" />
-                <ScalarProperty Name="AIRPORTISORegion" ColumnName="AIRPORTISORegion" />
-                <ScalarProperty Name="AIRPORTMunicipality" ColumnName="AIRPORTMunicipality" />
-                <ScalarProperty Name="AIRPORTIATACode" ColumnName="AIRPORTIATACode" />
                 <ScalarProperty Name="AIRPORTCoordinates" ColumnName="AIRPORTCoordinates" />
+                <ScalarProperty Name="AIRPORTIATACode" ColumnName="AIRPORTIATACode" />
+                <ScalarProperty Name="AIRPORTMunicipality" ColumnName="AIRPORTMunicipality" />
+                <ScalarProperty Name="AIRPORTISORegion" ColumnName="AIRPORTISORegion" />
+                <ScalarProperty Name="AIRPORTISOCountry" ColumnName="AIRPORTISOCountry" />
+                <ScalarProperty Name="AIRPORTContinent" ColumnName="AIRPORTContinent" />
+                <ScalarProperty Name="AIRPORTName" ColumnName="AIRPORTName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
